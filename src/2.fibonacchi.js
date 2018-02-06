@@ -10,7 +10,7 @@
 let sum = (arr) => {
   let data  = Array.isArray(arr) ? arr : [];
 
-  return data.reduce( (prev, curr) => prev + curr );
+  return data.reduce( (prev, curr) => prev + curr ) ;
 };
 
 let fibonacci = (max, options) => {
@@ -25,28 +25,31 @@ let fibonacci = (max, options) => {
     return 'Max must be greater than 2';
   }
 
-  while(curr < limit) {
-     let next  = last + curr;
-     last = curr;
-     curr = next;
+  while(last + curr < limit) {
+    let next = last + curr;
+    last = curr;
+    curr = next;
 
-     if (next % 2 === 0) {
+    if (next % 2 === 0) {
        counterEven.push(next);
-     } else {
+    } else {
        counterOdd.push(next);
-     }
+    }
   }
 
   if (options && options.style) {
     if (options.style === 'even') {
-
+      result = sum(counterEven);
+    } else if (options.style === 'odd') {
+      result = sum(counterOdd);
     }
   } else {
-    return sum(counterEven) + sum(counterOdd);
+    result = sum(counterEven) + sum(counterOdd);
   }
+
   return result;
 };
 
-const answer = fibonacci();
+const answer = fibonacci(400, { style: 'even' });
 
 console.log(answer);
