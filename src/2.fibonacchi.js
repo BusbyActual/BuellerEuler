@@ -7,6 +7,11 @@
 
   By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
+let sum = (arr) => {
+  let data  = Array.isArray(arr) ? arr : [];
+
+  return data.reduce( (prev, curr) => prev + curr );
+};
 
 let fibonacci = (max, options) => {
   let limit = max || 4000000;
@@ -22,15 +27,23 @@ let fibonacci = (max, options) => {
 
   while(curr < limit) {
      let next  = last + curr;
+     last = curr;
+     curr = next;
 
-
-     if (last % 2 === 0) {
+     if (next % 2 === 0) {
        counterEven.push(next);
      } else {
        counterOdd.push(next);
      }
   }
 
+  if (options && options.style) {
+    if (options.style === 'even') {
+
+    }
+  } else {
+    return sum(counterEven) + sum(counterOdd);
+  }
   return result;
 };
 
