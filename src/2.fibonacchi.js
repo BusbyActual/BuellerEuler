@@ -10,19 +10,24 @@
 
 let fibonacci = (max, options) => {
   let limit = max || 4000000;
-  let counterEven = [];
+  let counterEven = [2];
   let counterOdd = [1];
   let last = 1;
-  let result;
+  let curr = 2;
+  let result = 0;
 
-  for (let x = 1; x < limit; x++) {
-     let temp = last + x;
-     last = temp;
+  if (max < 3) {
+    return 'Max must be greater than 2';
+  }
+
+  while(curr < limit) {
+     let next  = last + curr;
+
 
      if (last % 2 === 0) {
-       counterEven.push(last);
+       counterEven.push(next);
      } else {
-       counterOdd.push(last);
+       counterOdd.push(next);
      }
   }
 
