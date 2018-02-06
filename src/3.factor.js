@@ -6,10 +6,23 @@
   What is the largest prime factor of the number 600851475143 ?
 */
 
-let placeholder = () => {
+let findFactors = (originalTarget) => {
+  let target = originalTarget || 600851475143;
+  let i = 2;
+  let results = [];
 
-};
+  while ( i < target) {
+    while ( target % i === 0) {
+      ((newTarget) => {
+        results.push(newTarget);
+        target = newTarget;
+      })(target / i)
+    }
+    i++;
+  }
 
-const answer;
+  return results;
+}
+const answer = findFactors(13195);
 
 console.log(answer);
