@@ -22,7 +22,11 @@ let isDivisible = (num, max) => {
 let evenlyDivisible = (num) => {
   let count = num;
 
-  while(!isDivisible(count, num)) {
+  if (typeof num !== 'number') {
+    return null;
+  }
+
+  while (!isDivisible(count, num)) {
     count++;
   }
 
