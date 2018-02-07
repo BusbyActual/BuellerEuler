@@ -21,7 +21,7 @@ let checkPalindrome = (num) => {
 
 let findPalindrome = (count, digits) => {
   let highest = 0;
-  let dict = {};
+  let arr = [];
   let max  = '';
   let counter = digits;
 
@@ -34,6 +34,12 @@ let findPalindrome = (count, digits) => {
     for (let y = counter; y > 1; y--) {
       let temp = x * y;
 
+      if (checkPalindrome(teno)) {
+        if (temp > max) {
+          max = temp;
+          arr = [x, y];
+        }
+      }
 
     }
   }
