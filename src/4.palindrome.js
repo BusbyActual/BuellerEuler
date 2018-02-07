@@ -24,7 +24,7 @@ let findPalindrome = (count, digits) => {
   let counter = digits;
 
   // build max
-  while (counter > 1) {
+  while (counter > 0) {
     max += 9
     counter--;
   }
