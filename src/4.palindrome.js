@@ -8,9 +8,7 @@
 
 let checkPalindrome = (num) => {
   let myString = '' + num;
-
-  /* reverse removeChar for comparison*/
-  let isPalindrome = removeChar.split('').reverse().join('');
+  let isPalindrome = myString.split('').reverse().join('');
 
   if (myString === isPalindrome) {
     return true;
@@ -27,23 +25,23 @@ let findPalindrome = (count, digits) => {
 
   while (counter > 1) {
     max += 9
-    temp--;
+    counter--;
   }
 
   for (let x = counter; x > 1; x-- ) {
     for (let y = counter; y > 1; y--) {
       let temp = x * y;
 
-      if (checkPalindrome(teno)) {
-        if (temp > max) {
-          max = temp;
+      if (checkPalindrome(temp)) {
+        if (temp > highest) {
+          highest = temp;
           arr = [x, y];
         }
       }
-
     }
   }
 
+  return { 'palindrome': highest, 'solution': arr };
 };
 
 const answer = findPalindrome(2, 3);
