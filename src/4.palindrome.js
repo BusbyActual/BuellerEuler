@@ -5,12 +5,27 @@
 
   Find the largest palindrome made from the product of two 3-digit numbers.
 */
+// let check
+let findPalindrome = (count, digits) => {
+  let highest = 0;
+  let dict = {};
+  let max  = '';
+  let counter = digits;
 
-let palindrome = ( ) => {
+  while (counter > 1) {
+    max += 9
+    temp--;
+  }
 
+  for (let x = counter; x > 1; x-- ) {
+    for (let y = counter; y > 1; y--) {
+      let temp = x * y;
+
+    }
+  }
 
 };
 
-const answer = palindrome( );
+const answer = findPalindrome(2, 3);
 
 console.log(answer);
