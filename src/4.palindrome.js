@@ -23,13 +23,16 @@ let findPalindrome = (count, digits) => {
   let max  = '';
   let counter = digits;
 
+  // build max
   while (counter > 1) {
     max += 9
     counter--;
   }
+  // coerce to number
+  max = max * 1;
 
-  for (let x = counter; x > 1; x-- ) {
-    for (let y = counter; y > 1; y--) {
+  for (let x = max; x > 1; x-- ) {
+    for (let y = max; y > 1; y--) {
       let temp = x * y;
 
       if (checkPalindrome(temp)) {
