@@ -5,11 +5,27 @@
 
  What is the 10 001st prime number?
 */
+let isPrime  = (n) => {
+  if (n < 2) {
+    return false;
+  }
 
-let primes = ( ) => {
+  let q = Math.floor(Math.sqrt(n));
+
+  for (let i = 2; i <= q; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+
+let primes = (max) => {
 
 };
 
-const answer = primes( );
+const answer = primes(max);
 
 console.log(answer);
