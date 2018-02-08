@@ -26,12 +26,17 @@ let primes = (max) => {
   let arr = [];
   let count = 1;
 
+  if ( typeof max !== 'number' && max < 1) {
+    return null;
+  }
+
   while (arr.length !== max) {
     if (isPrime(count)) {
       arr.push(count);
     }
     count++;
   }
+
   return arr[max - 1];
 };
 
