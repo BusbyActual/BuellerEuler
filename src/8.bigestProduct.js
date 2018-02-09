@@ -53,9 +53,15 @@ let product = (len) => {
   let highest = 0;
   let highestArr = [];
 
-  for (let x = 0; x < bigNum.lenth; x++) {
+  for (let x = 0; x < bigNum.lenth - len; x++) {
     let temp = bigNum.slice(0, len);
-
+    let current = temp.split('').reduce((a, b) => {
+      return a * b;
+    }, 1);
+    if (current > highest) {
+      highest = current;
+      highestArr = temp.split('');
+    }
   }
 
 };
