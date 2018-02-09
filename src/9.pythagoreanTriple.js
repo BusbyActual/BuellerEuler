@@ -18,6 +18,23 @@
 let tripletsBelleville = (max) => {
   let triplets = [];
 
+  for (let x = 0; x < max; x++) {
+    for (let y = 0; y < max; x++) {
+      for (let z= 0; z < max; z++) {
+        if (z < y && y < x) {
+          let a = z * z;
+          let b = y * y;
+          let c = x * x;
+
+          if ( a + b  === c) {
+            if (a + b + c === max) {
+              triplets = [ a, b, c];
+            }
+          }
+        }
+      }
+    }
+  }
 
 
   return triplets;
