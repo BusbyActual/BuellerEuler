@@ -27,7 +27,7 @@ let tripletsBelleville = (max) => {
           let c = x * x;
 
           if ((a + b)  === c) {
-            if ((a + b + c) === max) {
+            if ((z + y + x) === max) {
               triplets = [ a, b, c];
             }
           }
@@ -37,9 +37,9 @@ let tripletsBelleville = (max) => {
   }
 
 
-  return triplets;
+  return { 'prompt': max, 'solution': triplets || 'none : (' };
 };
 
-const answer = tripletsBelleville(50);
+const answer = tripletsBelleville(1000);
 
 console.log(answer);
