@@ -5,6 +5,7 @@
 
  What is the 10 001st prime number?
 */
+
 let isPrime  = (n) => {
   if (n < 2) {
     return false;
@@ -40,6 +41,9 @@ let primes = (max) => {
   return arr[max - 1];
 };
 
-const answer = primes(10001);
+// const answer = primes(10001);
+// console.log(answer);
 
-console.log(answer);
+module.exports = {
+    isPrime: isPrime
+}
