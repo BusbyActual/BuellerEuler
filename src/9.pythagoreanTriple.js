@@ -11,11 +11,18 @@
 */
 
 
+/*
+  There are likely maths to cut down the iterations from max down.
+  But I'm just here to bruteforce things ; )
+*/
+let tripletsBelleville = (max) => {
+  let triplets = [];
 
-let tripletsBelleville = ( ) => {
 
+
+  return triplets;
 };
 
-const answer = tripletsBelleville( );
+const answer = tripletsBelleville(50);
 
 console.log(answer);
