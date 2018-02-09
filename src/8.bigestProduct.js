@@ -53,8 +53,8 @@ let product = (len) => {
   let highest = 0;
   let highestArr = [];
 
-  for (let x = 0; x < bigNum.lenth - len; x++) {
-    let temp = bigNum.slice(0, len);
+  for (let x = 0; x < bigNum.length - len; x++) {
+    let temp = bigNum.slice(x, x + len);
     let current = temp.split('').reduce((a, b) => {
       return a * b;
     }, 1);
@@ -64,6 +64,7 @@ let product = (len) => {
     }
   }
 
+  return { 'larget': highest, 'numbers': highestArr };
 };
 
 const answer = product(4);
