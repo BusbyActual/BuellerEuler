@@ -59,9 +59,10 @@ let largeGrid = (str, len) => {
   let temp;
 
   let multiply = (a, b, c, d) => {
+
     if (a && b && c && d) {
       let temp = a * b * c * d;
-
+          console.log(a,b,c,d)
       if (temp > largest) {
         largest = temp;
         solution = [a, b, c, d];
@@ -70,7 +71,8 @@ let largeGrid = (str, len) => {
   };
 
   for (let x = 0; x < polishedStr.length; x++) {
-    let index = polishedStr[x];
+    let index = polishedStr;
+    // console.log(index)
     if (index) {
       // Solve Horizontal
 
@@ -92,15 +94,16 @@ let largeGrid = (str, len) => {
       // Solve Diagonal
 
       // North East
-      multiply(index[x - 3 - (len * 3)], index[x - 2 - (len * 2)], index[x - 1 - len)], index[x]);
+      multiply(index[x - 3 - (len * 3)], index[x - 2 - (len * 2)], index[x - 1 - len], index[x]);
       // North West
-      multiply(index[x + 3 - (len * 3)], index[x + 2 - (len * 2)], index[x + 1 - len)], index[x]);
+      multiply(index[x + 3 - (len * 3)], index[x + 2 - (len * 2)], index[x + 1 - len], index[x]);
       // South East
-      multiply(index[x + 3 + (len * 3)], index[x + 2 + (len * 2)], index[x + 1 + len)], index[x]);
+      multiply(index[x + 3 + (len * 3)], index[x + 2 + (len * 2)], index[x + 1 + len], index[x]);
       // South West
-      multiply(index[x + 3 - (len * 3)], index[x + 2 - (len * 2)], index[x + 1 - len)], index[x]);
+      multiply(index[x - 3 + (len * 3)], index[x - 2 + (len * 2)], index[x - 1 + len], index[x]);
     }
   }
+  return { 'answer': largest, 'solution': solution };
 };
 
 const answer = largeGrid(mrString, 20);
