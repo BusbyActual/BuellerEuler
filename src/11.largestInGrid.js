@@ -56,7 +56,27 @@ let largeGrid = (str, len) => {
 
   for (let x = 0; x < polishedStr.length; x++) {
     if (polishedStr[x]) {
+      // Solve Horizontal
 
+      // Up
+
+      // Down
+
+      // Solve Vertical
+
+      // Left
+
+      // Right
+
+      // Solve Diagonal
+
+      // North East
+
+      // North West
+
+      // South East
+
+      // South West
     }
   }
 };
