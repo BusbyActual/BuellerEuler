@@ -94,11 +94,11 @@ let largeGrid = (str, len) => {
       // North East
       multiply(index[x - 3 - (len * 3)], index[x - 2 - (len * 2)], index[x - 1 - len)], index[x]);
       // North West
-      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
+      multiply(index[x + 3 - (len * 3)], index[x + 2 - (len * 2)], index[x + 1 - len)], index[x]);
       // South East
-      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
+      multiply(index[x + 3 + (len * 3)], index[x + 2 + (len * 2)], index[x + 1 + len)], index[x]);
       // South West
-      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
+      multiply(index[x + 3 - (len * 3)], index[x + 2 - (len * 2)], index[x + 1 - len)], index[x]);
     }
   }
 };
