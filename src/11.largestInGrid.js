@@ -49,19 +49,36 @@ const mrString = `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
   20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
   20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
   01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48`;
+
+let multiply = (a, b, c, d) => {
+  return a * b * c * d;
+};
+
 let largeGrid = (str, len) => {
   let polishedStr = str.replace(/(\r\n|\n|\r)/gm,"").split(' ');
-  let largest;
+  let largest = 0;
   let solution = [];
+  let temp;
 
   for (let x = 0; x < polishedStr.length; x++) {
-    if (polishedStr[x]) {
+    let index = polishedStr[x];
+    if (index) {
       // Solve Horizontal
 
       // Up
-
+      if (x >= len * 4) {
+        temp = multiply(x, x[len * 3], x[len * 2], x[len]);
+        if (temp > largest) {
+          largest = temp;
+        }
+      }
       // Down
-
+      if (x <= len * 16) {
+        temp = multiply(x, x[len * 3], x[len * 2], x[len]);
+        if (temp > largest) {
+          largest = temp;
+        }
+      }
       // Solve Vertical
 
       // Left
