@@ -75,10 +75,11 @@ let largeGrid = (str, len) => {
       // Solve Horizontal
 
       // Up
-      multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
+      multiply(index[x - (len * 3)], index[x - (len * 2)], index[ x - (len)], index[x]);
 
       // Down
-      multiply(index[x - (len * 3)], index[x - (len * 2)], index[ x - (len)], index[x]);
+      multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
+
 
       // Solve Vertical
 
@@ -91,12 +92,13 @@ let largeGrid = (str, len) => {
       // Solve Diagonal
 
       // North East
-
+      multiply(index[x - 3 - (len * 3)], index[x - 2 - (len * 2)], index[x - 1 - len)], index[x]);
       // North West
-
+      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
       // South East
-
+      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
       // South West
+      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
     }
   }
 };
