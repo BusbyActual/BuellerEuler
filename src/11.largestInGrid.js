@@ -50,15 +50,21 @@ const mrString = `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
   20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
   01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48`;
 
-let multiply = (a, b, c, d) => {
-  return a * b * c * d;
-};
+
 
 let largeGrid = (str, len) => {
   let polishedStr = str.replace(/(\r\n|\n|\r)/gm,"").split(' ');
   let largest = 0;
   let solution = [];
   let temp;
+
+  let multiply = (a, b, c, d) => {
+    let temp = a * b * c * d;
+    if (temp > largest) {
+      largest = temp;
+      solution = [a, b, c, d];
+    }
+  };
 
   for (let x = 0; x < polishedStr.length; x++) {
     let index = polishedStr[x];
@@ -67,23 +73,25 @@ let largeGrid = (str, len) => {
 
       // Up
       if (x >= len * 4) {
-        temp = multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
-        if (temp > largest) {
-          largest = temp;
-        }
+        multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
       }
       // Down
       if (x <= len * 16) {
-        temp = multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
-        if (temp > largest) {
-          largest = temp;
-        }
+        multiply(index[x - (len * 3)], index[x - (len * 2)], index[ x - (len)], index[x]);
       }
       // Solve Vertical
 
       // Left
+      temp = multiply(index[x - 3], index[x - 2], index[x - 1], index[x]);
+      if (temp > largest) {
+        largest = temp;
+      }
 
       // Right
+      temp = multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
+      if (temp > largest) {
+        largest = temp;
+      }
 
       // Solve Diagonal
 
