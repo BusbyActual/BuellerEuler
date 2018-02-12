@@ -59,10 +59,13 @@ let largeGrid = (str, len) => {
   let temp;
 
   let multiply = (a, b, c, d) => {
-    let temp = a * b * c * d;
-    if (temp > largest) {
-      largest = temp;
-      solution = [a, b, c, d];
+    if (a && b && c && d) {
+      let temp = a * b * c * d;
+
+      if (temp > largest) {
+        largest = temp;
+        solution = [a, b, c, d];
+      }
     }
   };
 
@@ -72,26 +75,18 @@ let largeGrid = (str, len) => {
       // Solve Horizontal
 
       // Up
-      if (x >= len * 4) {
-        multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
-      }
+      multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
+
       // Down
-      if (x <= len * 16) {
-        multiply(index[x - (len * 3)], index[x - (len * 2)], index[ x - (len)], index[x]);
-      }
+      multiply(index[x - (len * 3)], index[x - (len * 2)], index[ x - (len)], index[x]);
+
       // Solve Vertical
 
       // Left
-      temp = multiply(index[x - 3], index[x - 2], index[x - 1], index[x]);
-      if (temp > largest) {
-        largest = temp;
-      }
+      multiply(index[x - 3], index[x - 2], index[x - 1], index[x]);
 
       // Right
-      temp = multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
-      if (temp > largest) {
-        largest = temp;
-      }
+      multiply(index[x + 3], index[x + 2], index[x + 1], index[x]);
 
       // Solve Diagonal
 
