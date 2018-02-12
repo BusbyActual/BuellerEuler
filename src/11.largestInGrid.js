@@ -67,14 +67,14 @@ let largeGrid = (str, len) => {
 
       // Up
       if (x >= len * 4) {
-        temp = multiply(x, x[len * 3], x[len * 2], x[len]);
+        temp = multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
         if (temp > largest) {
           largest = temp;
         }
       }
       // Down
       if (x <= len * 16) {
-        temp = multiply(x, x[len * 3], x[len * 2], x[len]);
+        temp = multiply(index[x + (len * 3)], index[x + (len * 2)], index[ x + (len)], index[x]);
         if (temp > largest) {
           largest = temp;
         }
