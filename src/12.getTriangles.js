@@ -18,11 +18,35 @@
 
   What is the value of the first triangle number to have over five hundred divisors?
 */
+let  calculate = (num) => {
+    let half = Math.floor(num / 2), // Ensures a whole number <= num.
+        arr = [1], // 1 will be a part of every solution.
+        i, j;
 
-let triangleFactors = ( ) => {
+    // Determine out increment value for the loop and starting point.
+    num % 2 === 0 ? (i = 2, j = 1) : (i = 3, j = 2);
 
+    for (i; i <= half; i += j) {
+        num % i === 0 ? arr.push(i) : false;
+    }
+
+    arr.push(num) // Always include the original number.
+    return arr;
+}
+
+calculate(11000);
+
+let triangleFactors = (max) => {
+    let count = 0;
+    let number = 28;
+
+    // while (count !== max) {
+    //   count = calculate(number).length
+    //   number++;
+    // }
+    return calculate(number).length;
 };
 
-const answer = triangleFactors( );
+const answer = triangleFactors(500);
 
 console.log(answer);
