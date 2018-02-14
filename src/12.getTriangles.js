@@ -38,13 +38,14 @@ calculate(11000);
 
 let triangleFactors = (max) => {
     let count = 0;
-    let number = 28;
+    let number = max;
 
-    // while (count !== max) {
-    //   count = calculate(number).length
-    //   number++;
-    // }
-    return calculate(number).length;
+    while (count < max) {
+      count = calculate(number).length;
+      number++;
+    }
+
+    return { 'answer': number, 'factors': calculate(number) };
 };
 
 const answer = triangleFactors(500);
