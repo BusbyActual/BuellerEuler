@@ -34,8 +34,6 @@ let  calculate = (num) => {
     return arr;
 }
 
-calculate(11000);
-
 let triangleFactors = (max) => {
     let count = 0;
     let number = max;
