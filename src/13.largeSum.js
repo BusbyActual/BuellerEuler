@@ -208,12 +208,12 @@ let num = `37107287533902102798797998220837590246510135740250
 
 let largeSum = (str, len) => {
   let total = 0;
-  let tempNum = str.replace(/(\r\n|\n|\r)/gm,"").split('');
+  let tempNum = str.replace(/(\r\n|\n|\r/\s/)/gm,"").split('');
 
   while(tempNum.length) {
    total += (1 * tempNum.splice(0,len).join(''));
+   // tempNum.splice(0,2);
    console.log(total)
-   tempNum.splice(0,2);
   }
 
   return total;
