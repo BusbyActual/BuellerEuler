@@ -206,19 +206,17 @@ let num = `37107287533902102798797998220837590246510135740250
   20849603980134001723930671666823555245252804609722
   53503534226472524250874054075591789781264330331690`;
 
-let largeSum = (str, len) => {
+let largeSum = (str, numLen, len) => {
   let total = 0;
-  let tempNum = str.replace(/(\r\n|\n|\r/\s/)/gm,"").split('');
+  let tempNum = str.replace(/(\r\n|\n|\r|\s)/gm,"").split('');
 
   while(tempNum.length) {
-   total += (1 * tempNum.splice(0,len).join(''));
-   // tempNum.splice(0,2);
-   console.log(total)
+   total += (1 * tempNum.splice(0, numLen).join(''));
   }
 
-  return total;
+  return total.toString().slice(0, len);
 };
 
-const answer = largeSum(num, 50);
+const answer = largeSum(num, 50, 10);
 
 console.log(answer);
