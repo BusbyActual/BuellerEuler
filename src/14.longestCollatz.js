@@ -23,16 +23,25 @@ let longestSequence = (max) => {
 
   for ( let x = 1; x < max; x++) {
     let temp = x;
+    tempSequence = [];
 
     while ( temp > 1) {
       //check if even
-      if (temp % 2 !== 0) {
-
+      if (temp % 2 === 0) {
+        temp = temp / 2;
       } else {
-        temp = (temp * 3) + 1
+        temp = (temp * 3) + 1;
       }
+      tempSequence.push(temp);
+    }
+
+    if (tempSequence.length > sequence.length) {
+      sequence = tempSequence;
+      total = x;
     }
   }
+
+  return { 'answer': total, 'solution': sequence };
 };
 
 const answer = longestSequence(13);
