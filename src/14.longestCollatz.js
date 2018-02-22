@@ -20,10 +20,10 @@ let longestSequence = (max) => {
   let total = 0;
   let sequence = [];
   let tempSequence = [];
-
+  let x = max;
   for ( let x = 1; x < max; x++) {
     let temp = x;
-    tempSequence = [];
+    tempSequence = [x];
 
     while ( temp > 1) {
       //check if even
@@ -44,6 +44,6 @@ let longestSequence = (max) => {
   return { 'answer': total, 'solution': sequence };
 };
 
-const answer = longestSequence(13);
+const answer = longestSequence(1000000);
 
 console.log(answer);
