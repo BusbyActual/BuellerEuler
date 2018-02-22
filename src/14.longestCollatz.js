@@ -16,10 +16,25 @@
   NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 
-let longestSequence = ( ) => {
+let longestSequence = (max) => {
+  let total = 0;
+  let sequence = [];
+  let tempSequence = [];
 
+  for ( let x = 1; x < max; x++) {
+    let temp = x;
+
+    while ( temp > 1) {
+      //check if even
+      if (temp % 2 !== 0) {
+
+      } else {
+        temp = (temp * 3) + 1
+      }
+    }
+  }
 };
 
-const answer = longestSequence( );
+const answer = longestSequence(13);
 
 console.log(answer);
