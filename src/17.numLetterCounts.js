@@ -52,11 +52,12 @@ let letterCount = (max) => {
   };
 
   for (let x = 1; x < max; x++) {
-    let h = findHundreds(x)
+    let h = findHundreds(x);
+
     if (x === 1000) {
       total += dict[1].length + dict[1000].length;
     } else if (h) {
-
+      total += dict[h].length + dict[100].length;
     } else {
 
     }
