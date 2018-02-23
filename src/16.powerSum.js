@@ -6,6 +6,11 @@
   What is the sum of the digits of the number 21000?
 */
 
+/*
+  1. https://stackoverflow.com/questions/9834037/solving-project-euler-16-with-javascript
+  2. https://stackoverflow.com/questions/9272185/summing-exponents-in-javascript
+*/
+
 /* add library */
 
 //+ Jonas Raoni Soares Silva
