@@ -21,7 +21,16 @@ let letterCount = ( ) => {
     8: 'eight',
     9: 'nine',
     10: 'ten',
-  }
+    11: 'eleven',
+    20: 'twenty',
+    30: 'thirty',
+    40: 'fourty',
+    50: 'fifty',
+    60: 'sixty',
+    70: 'seventy',
+    80: 'eighty',
+    90: 'ninety'
+  };
 };
 
 const answer = letterCount( );
