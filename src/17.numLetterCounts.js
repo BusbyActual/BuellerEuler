@@ -10,6 +10,7 @@
 */
 
 let letterCount = (max) => {
+  let total = 0;
   let dict = {
     1: 'one',
     2: 'two',
@@ -37,18 +38,32 @@ let letterCount = (max) => {
     60: 'sixty',
     70: 'seventy',
     80: 'eighty',
-    90: 'ninety'
+    90: 'ninety',
+    100: 'hundred',
+    1000: 'thousand'
   };
 
   let findHundreds = (num) => {
-    if (num !== 1000) {
+    if (num !== 1000 && num > 99) {
       return num % 100;
+    } else {
+      return 0;
     }
   };
 
-  for ( let x = 0; x < max; x++) {
+  for (let x = 1; x < max; x++) {
+    let h = findHundreds(x)
+    if (x === 1000) {
+      total += dict[1].length + dict[1000].length;
+    } else if (h) {
 
+    } else {
+
+    }
   }
+
+
+  return total;
 };
 
 const answer = letterCount(5);
