@@ -9,7 +9,7 @@
   NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
 */
 
-let letterCount = ( ) => {
+let letterCount = (max) => {
   let dict = {
     1: 'one',
     2: 'two',
@@ -39,8 +39,18 @@ let letterCount = ( ) => {
     80: 'eighty',
     90: 'ninety'
   };
+
+  let findHundreds = (num) => {
+    if (num !== 1000) {
+      return num % 100;
+    }
+  };
+
+  for ( let x = 0; x < max; x++) {
+
+  }
 };
 
-const answer = letterCount( );
+const answer = letterCount(5);
 
 console.log(answer);
