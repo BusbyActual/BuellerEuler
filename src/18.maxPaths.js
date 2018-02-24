@@ -52,13 +52,19 @@ let triangle =
 ];
 
 let maxPaths = (arr) => {
-  let triangle = arr[0];
-  let total;
-  let solution = [];
+  let triangle = arr;
+  let total = 0;
+  let solution =  [];
+
+  triangle.forEach((row) => {
+    row.sort((a, b) => { return b - a; })
+    total += row[0];
+    solution.push(row[0]);
+  })
 
   return { 'answer': total, 'solution': solution };
 };
 
-const answer = maxPathss(triangle);
+const answer = maxPaths(triangle);
 
 console.log(answer);
