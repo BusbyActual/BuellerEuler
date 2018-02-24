@@ -15,10 +15,33 @@
 
 */
 
-let countSundays = ( ) => {
+let config = {
+  'start' : '01/01/1901',
+  'end': '12/31/2000',
+  'setup': { 'day': 'Monday', 'date': '01/01/1900' }
+}
+
+let getLeap = (min, max) => {
+  let leapYears = {};
+
+  for (let x = min; x <= max; x ++) {
+    if (x % 100 === 0) {
+      if (x % 400 === 0) {
+        leapYears[x] = 1;
+      }
+    } else if (x % 4 === 0) {
+      leapYears[x] = 1;
+    }
+  }
+
+  return leapYears;
+};
+
+let countSundays = (cfg) => {
 
 };
 
-const answer = countSundays();
+
+const answer = countSundays(config);
 
 console.log(answer);
