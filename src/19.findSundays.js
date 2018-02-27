@@ -18,7 +18,9 @@
 let config = {
   'start' : '01/01/1901',
   'end': '12/31/2000',
-  'setup': { 'day': 'Monday', 'date': '01/01/1900' }
+  'setup': { 'day': 'Monday', 'date': '01/01/1900' },
+  'day': 'Sunday',
+  'month': '01'
 }
 
 let getLeap = (min, max) => {
@@ -38,7 +40,10 @@ let getLeap = (min, max) => {
 };
 
 let countSundays = (cfg) => {
+  let count = 0;
 
+
+  return count;
 };
 
 
