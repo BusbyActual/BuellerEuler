@@ -58,16 +58,35 @@ let countSundays = (cfg) => {
   let count = 0;
   let finished = false;
   let date = cfg.setup.date.split('/');
-  let day = date[1];
-  let month = data[0];
-  let year = date[2];
+  let day = Number(date[1]);
+  let month = Number(date[0]);
+  let year = Number(date[2]);
+  let lastDate = cfg.end.split('/');
+  let lastDay = Number(lastDate[1]);
+  let lastMonth = Number(lastDate[0]);
+  let lastYear = Number(lastDate[2]);
 
   while(!finished) {
 
-    finished = true;
+
+    if (day < dict[month]) {
+      day = day + 1;
+    } else if ( month < 12) {
+      month = month + 1;
+      day = 1;
+    } else {
+      day = 1;
+      month = 1;
+      year++;
+    }
+
+    if (year === lastYear && month === lastMonth && day === lastDay) {
+      finished = true;
+    }
+
   }
 
-  return count;
+  return { 'total': count, 'end':  month + '/' + day + '/' + year};
 };
 
 
