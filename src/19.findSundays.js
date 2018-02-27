@@ -21,7 +21,22 @@ let config = {
   'setup': { 'day': 'Monday', 'date': '01/01/1900' },
   'day': 'Sunday',
   'month': '01'
-}
+};
+
+let dict = {
+  1: 31,
+  2: 28, // leap year +1
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 31,
+  8: 31,
+  9: 30,
+  10: 30,
+  11: 31,
+  12: 31
+};
 
 let getLeap = (min, max) => {
   let leapYears = {};
@@ -41,7 +56,16 @@ let getLeap = (min, max) => {
 
 let countSundays = (cfg) => {
   let count = 0;
+  let finished = false;
+  let date = cfg.setup.date.split('/');
+  let day = date[1];
+  let month = data[0];
+  let year = date[2];
 
+  while(!finished) {
+
+    finished = true;
+  }
 
   return count;
 };
