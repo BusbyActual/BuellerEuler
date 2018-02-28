@@ -57,6 +57,7 @@ let getLeap = (min, max) => {
 let countSundays = (cfg) => {
   let count = 0;
   let finished = false;
+  let started = false;
   let date = cfg.setup.date.split('/');
   let day = Number(date[1]);
   let month = Number(date[0]);
@@ -65,8 +66,18 @@ let countSundays = (cfg) => {
   let lastDay = Number(lastDate[1]);
   let lastMonth = Number(lastDate[0]);
   let lastYear = Number(lastDate[2]);
+  let startDate = cfg.start.split('/');
+  let startDay = Number(lastDate[1]);
+  let startMonth = Number(lastDate[0]);
+  let startYear = Number(lastDate[2]);
 
   while(!finished) {
+
+    if (!started) {
+      if (year >= startYear && month >= startMonth && day >= startDay) {
+        started = true;
+      }
+    }
 
 
     if (day < dict[month]) {
