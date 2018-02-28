@@ -19,8 +19,8 @@ let config = {
   'start' : '01/01/1901',
   'end': '12/31/2000',
   'setup': { 'day': 'Monday', 'date': '01/01/1900' },
-  'day': 'Sunday',
-  'month': '01'
+  'targetDay': 'Sunday',
+  'targetMonth': 1
 };
 
 let dict = {
@@ -54,6 +54,21 @@ let getLeap = (min, max) => {
   return leapYears;
 };
 
+let getWeek = (day) => {
+  let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  let index = 0;
+
+  for (let x = 0; x < days.length; x++) {
+    if (x > 0 && days[x] === day) {
+      let temp = days.splice(x - 1);
+      days.concat(temp.reverse());
+      x = 7;
+    }
+  }
+
+  return days;
+}
+
 let countSundays = (cfg) => {
   let count = 0;
   let finished = false;
@@ -67,9 +82,10 @@ let countSundays = (cfg) => {
   let lastMonth = Number(lastDate[0]);
   let lastYear = Number(lastDate[2]);
   let startDate = cfg.start.split('/');
-  let startDay = Number(lastDate[1]);
-  let startMonth = Number(lastDate[0]);
-  let startYear = Number(lastDate[2]);
+  let startDay = Number(startDate[1]);
+  let startMonth = Number(startDate[0]);
+  let startYear = Number(startDate[2]);
+  let weekArr = getWeek(config.setup.day);
 
   while(!finished) {
 
@@ -79,6 +95,11 @@ let countSundays = (cfg) => {
       }
     }
 
+    if (started) {
+      if (month === config.targetMonth && weekArr[0] === config.targetDay) {
+        total = total + 1;
+      }
+    }
 
     if (day < dict[month]) {
       day = day + 1;
@@ -90,6 +111,9 @@ let countSundays = (cfg) => {
       month = 1;
       year++;
     }
+
+    let mv = weekArr.shift();
+    weekArr.push(mv);
 
     if (year === lastYear && month === lastMonth && day === lastDay) {
       finished = true;
