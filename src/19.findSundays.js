@@ -86,6 +86,9 @@ let countSundays = (cfg) => {
   let startMonth = Number(startDate[0]);
   let startYear = Number(startDate[2]);
   let weekArr = getWeek(config.setup.day);
+  let leapDict = getLeap(startYear, lastYear);
+  let init = false;
+  let solution = [];
 
   while(!finished) {
 
@@ -96,8 +99,11 @@ let countSundays = (cfg) => {
     }
 
     if (started) {
+      let dayNum = new Date(month + '/' + day + '/' + year).getDay();
+
       if (month === config.targetMonth && weekArr[0] === config.targetDay) {
-        total = total + 1;
+        count = count + 1;
+        solution.push(month + '/' + day + '/' + year)
       }
     }
 
@@ -105,15 +111,20 @@ let countSundays = (cfg) => {
       day = day + 1;
     } else if ( month < 12) {
       month = month + 1;
+
+      if (leapDict[year] && month === 2) {
+        dict[2] = 29;
+      } else if (leapDict[year] && month === 3) {
+        dict[2] = 28;
+      }
+
       day = 1;
     } else {
       day = 1;
       month = 1;
-      year++;
+      year = year + 1;
     }
 
-    let mv = weekArr.shift();
-    weekArr.push(mv);
 
     if (year === lastYear && month === lastMonth && day === lastDay) {
       finished = true;
@@ -121,7 +132,7 @@ let countSundays = (cfg) => {
 
   }
 
-  return { 'total': count, 'end':  month + '/' + day + '/' + year};
+  return { 'total': count, 'solution':  solution };
 };
 
 
